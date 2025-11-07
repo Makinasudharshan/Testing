@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run JMeter with QAInsights Action
-        uses: QAInsights/PerfAction@2.0
+      - name: PerfAction for JMeter
+        uses: QAInsights/PerfAction@v5.6.3
         with:
-          testPlanPath: 'Tests/httpbin.jmx'         # Path to your .jmx file in repo
-          args: '-Jthreads=5 -Jrampup=2 -Jduration=20'
+          testPlanPath: './httpbin.jmx'         # Path to your .jmx file in repo
+          args: '-Jthreads=5 -Jrampup=2 -Jduration=30'
