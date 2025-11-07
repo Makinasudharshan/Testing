@@ -1,0 +1,22 @@
+name: JMeter Performance Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  jmeter-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: PerfAction for JMeter
+        uses: QAInsights/PerfAction@v5.6.3
+        with:
+          test-plan-path: './httpbin.jmx'         # Path to your .jmx file in repo
+          args: '-Jthreads=5 -Jrampup=2 -Jduration=10'
+
+          
